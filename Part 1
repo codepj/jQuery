@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Demo</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+</head>
+<body>
+  <a id="marsLink" href="http://mars.jpl.nasa.gov/">Check out Mars!</a>
+  
+  <img src="http://images2.wikia.nocookie.net/__cb20130402143559/gameofthrones/images/b/bf/Giant_working_S3_Ep1.jpg?3" />
+  <img src="http://25.media.tumblr.com/150deadbf1294f40687733ed08f7437b/tumblr_mjh1cc93ZB1ql9wlvo1_1280.jpg?3" />
+  <script>
+  var now = new Date();
+  var ticks = now.getTime();  
+  
+  window.onload = function() {
+    var newDate = new Date();
+    var diff = newDate.getTime() - ticks;
+  
+    console.log("Onload Diff:" + diff);  
+  }
+  
+  $( document ).ready(function() {
+    var newDate = new Date();
+    var diff = newDate.getTime() - ticks;
+  
+    console.log("Ready Diff:" + diff);  
+    
+    $('#marsLink').click(function( event ){
+      // event.preventDefault();
+      
+      var x = "";
+      var r=confirm("Press a button");
+      if (r==true)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      } 
+      
+      console.log(x);
+    });
+  });
+  </script>
+  
+</body>
+</html>
