@@ -1,16 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8" />
-<title>Demo</title>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-</head>
-<body>
-  <a id="marsLink" href="http://mars.jpl.nasa.gov/">Check out Mars!</a>
-  
-  <img src="http://images2.wikia.nocookie.net/__cb20130402143559/gameofthrones/images/b/bf/Giant_working_S3_Ep1.jpg?3" />
-  <img src="http://25.media.tumblr.com/150deadbf1294f40687733ed08f7437b/tumblr_mjh1cc93ZB1ql9wlvo1_1280.jpg?3" />
-  <script>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo</title>
+    <script data-require="jquery@*" data-semver="2.0.2" src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+    <script data-require="bootstrap@2.3.2" data-semver="2.3.2" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <link data-require="bootstrap-css@*" data-semver="2.3.2" rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+  </head>
+
+  <body>
+    <p>
+      <a href="http://mars.jpl.nasa.gov/" id="marsLink">Check out Mars!</a>
+    </p>
+    <img src="http://mars.jpl.nasa.gov/images/47_Bunge_Crater_dunes-full.jpg?1" />
+    <img src="http://mars.jpl.nasa.gov/images/33_Badlands_of_Aram_Chaos-full.jpg?1" />
+    <script>
   var now = new Date();
   var ticks = now.getTime();  
   
@@ -45,6 +50,6 @@
     });
   });
   </script>
-  
-</body>
+  </body>
+
 </html>
