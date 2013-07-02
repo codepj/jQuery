@@ -14,6 +14,8 @@
       }
       h2{margin-top:40px;}
       .thumb-container{width:160px;text-align:center;float:left;margin-right:20px;}
+      
+      #main-image{margin:0 auto;}
     </style>
   </head>
 
@@ -32,7 +34,7 @@
         <h1>View of Mars <small>Photos of the Red Planet</small></h1>
       </div>
       
-      <div id="main-image" class="carousel-inner">
+      <div id="main-image-container" class="carousel-inner">
         <div class="active item">
           <img id="main-image" src="http://mars.jpl.nasa.gov/images/47_Bunge_Crater_dunes-full.jpg?" />
           <div class="carousel-caption">
@@ -68,7 +70,7 @@
         maxHeight = 300,
         maxWidth = 1000;    
         
-    var image = $('#main-image img');
+    var image = $('#main-image');
     adjustSize();
     
     $('.preview-link').click(function(event){
@@ -82,9 +84,9 @@
       setTimeout(function(){
         image.attr('src', newSrc);
         adjustSize();
+        image.show(500);
       }, 500)
       
-      image.show(500);
     });
     
     
@@ -95,21 +97,23 @@
     }
     
     function adjustSize() {
-      resetSize();
-      
-      var width = image.width();
-      var height = image.height();
-      
-      if(height > maxHeight) {
-         image.css('height', maxHeight);
-      }
-      
-      width = image.width();
-      if(width > maxWidth) {
-        image.css('height', 'auto');
-        image.css('width', maxWidth);
-      }
+      resetSize();    
+      image.css('height', maxHeight + 'px');  
     }
+    
+    /*var url = "http://www.nasa.gov/ws/image_gallery.jsonp?format_output=1&display_id=page_1&limit=50&offset=0&Routes=1446&callback=image_of_the_day_1";
+    $.ajax({
+      url: url,
+      data: {},
+      success: function(stuff){
+        console.log(stuff);
+        var newImage = stuff.nodes[0].node.master_image;    
+        var newImagePath = 'http://www.nasa.gov' + newImage;
+        image.attr('src', newImagePath);
+      },
+      dataType: 'jsonp'
+    });*/
+    
   });
   </script>
   </body>
