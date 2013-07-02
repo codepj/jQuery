@@ -9,9 +9,9 @@
     <link data-require="bootstrap-css@*" data-semver="2.3.2" rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
   
     <script>
-    $('#marsLink').click(function(event){
+    /*$('#marsLink').click(function(event){
       event.preventDefault();
-    });
+    });*/
 
     // alert(document.getElementById("marsLink"));
     // alert($('#marsLink').length);
@@ -39,9 +39,14 @@
   </head>
 
   <body>
-    <p>
-      <a href="http://mars.jpl.nasa.gov/" id="marsLink">Check out Mars!</a>
-    </p>
+    <ul>
+      <li>
+        <a href="http://mars.jpl.nasa.gov/" id="marsLink" class="mars-link" onclick="alert('hi');return false;">Check out Mars!</a>
+      </li>
+      <li>
+        <a href="http://mars.jpl.nasa.gov/" id="marsLink" class="mars-link">Check out Mars Again!</a>
+      </li>
+    </ul>
     <img src="http://mars.jpl.nasa.gov/images/47_Bunge_Crater_dunes-full.jpg?3" />
     <img src="http://mars.jpl.nasa.gov/images/33_Badlands_of_Aram_Chaos-full.jpg?3" />
     <script>
