@@ -47,6 +47,8 @@
         <button class="btn btn-primary btn-small" type="button" id="hide-button">Hide Image</button>
         <button class="btn btn-primary btn-small" type="button" id="show-button">Show Image</button>
         <button class="btn btn-primary btn-small" type="button" id="toggle-button">Hide Image</button>
+        <button class="btn btn-primary btn-small" type="button" id="change-button">Change Image</button>
+        
       </div>
     </div>
     <script>
@@ -62,6 +64,7 @@
     });
     
     $('#change-button').click(function(){
+      $('#main-image').attr('src', 'http://bourbonstreetshots.com/wp-content/uploads/2013/03/ebron.jpg');
       innerContainer.find('h4').html('New Text');
     });
     
