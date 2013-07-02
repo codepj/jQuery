@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo</title>
+    <script data-require="jquery@*" data-semver="2.0.2" src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+    <script data-require="bootstrap@2.3.2" data-semver="2.3.2" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <link data-require="bootstrap-css@*" data-semver="2.3.2" rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />
+    
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+      h2{margin-top:40px;}
+      .thumb-container{width:160px;text-align:center;float:left;margin-right:20px;}
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">JPL jQuery</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="page-header">
+        <h1>View of Mars <small>Photos of the Red Planet</small></h1>
+      </div>
+      
+      <div id="main-image" class="carousel-inner">
+        <div class="active item">
+          <img id="main-image" src="http://mars.jpl.nasa.gov/images/47_Bunge_Crater_dunes-full.jpg?" />
+          <div class="carousel-caption">
+            <h4>Black and White Mars</h4>
+            <p>This is an image taken in mars!</p>
+          </div>          
+        </div>
+      </div>
+      
+      <!-- Image Thumbs --->
+      <h2>All Images</h2>
+      <div>
+        <div class="thumb-container">
+          <a class="preview preview-link" title="Bunge Crater Dunes" rel="../../images/47_Bunge_Crater_dunes-br.jpg" href="#" data-img="47_Bunge_Crater_dunes-br2.jpg">
+            <img width="160" border="0" alt="Fans and ribbons of dark sand dunes creep across the floor of Bunge Crater in response to winds blowing from the direction at the top of the picture. The frame is about 14 kilometers (9 miles) wide." src="http://mars.jpl.nasa.gov/images/47_Bunge_Crater_dunes-thm.jpg">
+          </a>
+          <a href="##">Bunge Crater Dunes</a>
+        </div>
+        <div class="thumb-container">
+          <a class="preview preview-link" title="Bunge Crater Dunes" rel="../../images/47_Bunge_Crater_dunes-br.jpg" href="#" data-img="15_Dust_Devils_on_Mars-br2.jpg">
+            <img width="160" border="0" alt="This beautiful observation shows a gorgeous pattern of dust devil tracks." src="http://mars.jpl.nasa.gov/images/15_Dust_Devils_on_Mars-thm.jpg">
+          </a>
+          <a href="##">Bunge Crater Dunes</a>
+        </div>
+      </div>
+    </div>
+    
+  <script> 
+  // http://www.nasa.gov/ws/image_gallery.jsonp?format_output=1&display_id=page_1&limit=50&offset=0&Routes=1446&callback=image_of_the_day_1
+  
+  $( document ).ready(function() {
+    var imgFolder = "http://mars.jpl.nasa.gov/images/",
+        maxHeight = 300,
+        maxWidth = 1000;    
+        
+    var image = $('#main-image img');
+    adjustSize();
+    
+    $('.preview-link').click(function(event){
+      event.preventDefault();
+      
+      image.hide(500);
+      
+      var link = $(this);
+      var newSrc = imgFolder + link.attr('data-img');
+      
+      setTimeout(function(){
+        image.attr('src', newSrc);
+        adjustSize();
+      }, 500)
+      
+      image.show(500);
+    });
+    
+    
+    function resetSize() {
+      image.css('width', 'auto');
+      image.css('height', 'auto');
+      
+    }
+    
+    function adjustSize() {
+      resetSize();
+      
+      var width = image.width();
+      var height = image.height();
+      
+      if(height > maxHeight) {
+         image.css('height', maxHeight);
+      }
+      
+      width = image.width();
+      if(width > maxWidth) {
+        image.css('height', 'auto');
+        image.css('width', maxWidth);
+      }
+    }
+  });
+  </script>
+  </body>
+
+</html>
