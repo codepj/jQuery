@@ -39,6 +39,8 @@
   </head>
 
   <body>
+  
+    <h1>Links</h1>
     <ul>
       <li>
         <a href="http://mars.jpl.nasa.gov/" id="marsLink" class="mars-link" onclick="alert('hi');return false;">Check out Mars!</a>
@@ -47,6 +49,30 @@
         <a href="http://mars.jpl.nasa.gov/" id="marsLink" class="mars-link">Check out Mars Again!</a>
       </li>
     </ul>
+    <h1>Form</h1>
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="inputEmail">Email</label>
+        <div class="controls">
+        <input type="text" id="inputEmail" placeholder="Email">
+      </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="inputPassword">Password</label>
+        <div class="controls">
+        <input type="password" id="inputPassword" placeholder="Password">
+      </div>
+      </div>
+      <div class="control-group">
+      <div class="controls">
+        <label class="checkbox">
+        <input type="checkbox"> Remember me
+      </label>
+      <button type="submit" class="btn">Sign in</button>
+      </div>
+      </div>
+    </form>
+    
     <img src="http://mars.jpl.nasa.gov/images/47_Bunge_Crater_dunes-full.jpg?3" />
     <img src="http://mars.jpl.nasa.gov/images/33_Badlands_of_Aram_Chaos-full.jpg?3" />
     <script>
