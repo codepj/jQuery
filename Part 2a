@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>Demo</title>
+    <script src="http://code.jquery.com/jquery-2.0.2.min.js" data-semver="2.0.2" data-require="jquery@*"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js" data-semver="2.3.2" data-require="bootstrap@2.3.2"></script>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" data-semver="2.3.2" data-require="bootstrap-css@*" />
+    <link data-require="jqueryui@1.10.0" data-semver="1.10.0" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/css/smoothness/jquery-ui-1.10.0.custom.min.css" />
+    <script data-require="jqueryui@1.10.0" data-semver="1.10.0" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.0/jquery-ui.js"></script>
+    <style>
+    body {
+      padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+    }
+    h2{margin-top:40px;}
+    #main-image-container{}
+    #main-image{text-align:center;}
+    .thumb-container{width:160px;text-align:center;float:left;margin-right:20px;}
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a href="#" class="brand">JPL jQuery</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="page-header">
+        <h1>View of Mars           
+          <small>Photos of the Red Planet</small>
+        </h1>
+      </div>
+      <div id="main-image-container">
+        <div class="carousel-inner" id="main-image-inner-container">
+          <img src="http://mars.jpl.nasa.gov/images/15_Dust_Devils_on_Mars-br2.jpg?" id="main-image" />
+          <div class="carousel-caption">
+            <h4>Dust Devils on Mars</h4>
+            <p>Martian Dust Devils!</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-primary btn-small" type="button" id="hide-button">Hide Image</button>
+        <button class="btn btn-primary btn-small" type="button" id="show-button">Show Image</button>
+        <button class="btn btn-primary btn-small" type="button" id="toggle-button">Hide Image</button>
+      </div>
+    </div>
+    <script>
+    $('#main-image-container').css('min-height', $('#main-image').height() + 75 + 'px');
+    // Todo: Do this when window is resized.
+    
+    var innerContainer = $('#main-image-inner-container');
+    $('#hide-button').click(function(){
+      innerContainer.hide('drop',{direction:'down'},'slow');
+    });
+    $('#show-button').click(function(){
+      innerContainer.show('drop',{direction:'down'},'slow');
+    });
+    
+    $('#change-button').click(function(){
+      innerContainer.find('h4').html('New Text');
+    });
+    
+    // Todo:  Toggle button
+    $('#toggle-button').click(function(){
+
+      if ( innerContainer.is(":visible") ) {
+        innerContainer.hide('drop',{direction:'down'},'slow');
+        $('#toggle-button').html('Show Image');
+      } else {
+        innerContainer.show('drop',{direction:'down'},'slow');
+        $('#toggle-button').html('Hide Image');
+      }  
+    });
+    
+    // Todo: Reset button
+    
+    // Todo: Change image button
+    </script>
+  </body>
+
+</html>
